@@ -1,0 +1,15 @@
+#!/bin/bash
+
+function copy {
+  \cp -v ~/$1 ./$2 | sed 's/\(.*\) -> \(.*\)/\2/'
+}
+
+mkdir -p ./.emacs.d
+copy ".emacs.d/init*.el" ".emacs.d/"
+
+mkdir -p ./.hammerspoon
+copy ".hammerspoon/init.lua" ".hammerspoon/"
+
+copy ".vimrc" "/" 
+
+echo "ok"
