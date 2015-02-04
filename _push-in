@@ -1,15 +1,16 @@
 #!/bin/bash
 
 function copy {
-  \cp -v ~/$1 ./$2 | sed 's/\(.*\) -> \(.*\)/\2/'
+  mkdir -p ./$2
+  \cp -v $1 ./$2 | sed 's/\(.*\) -> \(.*\)/\2/'
 }
 
-mkdir -p ./.emacs.d
-copy ".emacs.d/init*.el" ".emacs.d/"
+copy "~/.emacs.d/init*.el" "dot-emacs/"
 
-mkdir -p ./.hammerspoon
-copy ".hammerspoon/init.lua" ".hammerspoon/"
+copy "~/.hammerspoon/init.lua" "dot-hammerspoon/"
 
-copy ".vimrc" "/" 
+copy "~/.vimrc" "dot-vim/" 
 
-echo "ok"
+copy "~/.config/fish/config.fish" "dot-fish/"
+
+echo "[done]"
