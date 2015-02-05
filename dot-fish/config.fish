@@ -9,7 +9,10 @@ set fish_plugins brew osx
 
 # Settings
 set --erase fish_greeting
+
 # set -g -x PATH /usr/local/bin $PATH
+set -g -x PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
+set -g -x MANPAT /usr/local/opt/coreutils/libexec/gnuman $MANPATH
 
 # Path to your custom folder (default path is ~/.oh-my-fish/custom)
 #set fish_custom $HOME/dotfiles/oh-my-fish
