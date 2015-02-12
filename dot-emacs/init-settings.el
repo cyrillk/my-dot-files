@@ -1,4 +1,8 @@
 
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq tab-stop-list (number-sequence 2 200 2))
+
 ;; Config for OSX:
 (when (eq window-system 'ns)
   (set-fontset-font "fontset-default" 'symbol "Monaco")

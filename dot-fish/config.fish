@@ -10,6 +10,13 @@ set fish_plugins brew osx
 # Settings
 set --erase fish_greeting
 
+# Aliases
+alias gg "git status"
+alias ff "find . ! -iwholename '*.git*' -type f -name"
+alias em "emacs"
+alias ec "emacslient -t"
+alias es "emacs --daemon"
+
 # set -g -x PATH /usr/local/bin $PATH
 set -g -x PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
 set -g -x MANPAT /usr/local/opt/coreutils/libexec/gnuman $MANPATH
