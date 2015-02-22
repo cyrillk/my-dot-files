@@ -1,7 +1,11 @@
 #!/bin/bash
 
+set -o nounset
+set -o errexit
+set -o pipefail
+
 function symlink {
-  ln -s -f -v $(pwd)/$1 $2
+  ln -s -f -v $(pwd)/$1 $2 | sed -e 's/[‘’]//g' 
 }
 
 symlink dot-vim/vimrc ~/.vimrc
