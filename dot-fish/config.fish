@@ -5,17 +5,20 @@ set fish_path $HOME/.oh-my-fish
 set fish_theme clearance 
 
 # Plugins
-set fish_plugins brew osx
+set fish_plugins brew osx python
 
 # Settings
-set --erase fish_greeting
+# set --erase fish_greeting
 
 # Aliases
 alias gg "git status"
 alias ff "find . ! -iwholename '*.git*' -type f -name"
 alias em "emacs"
 alias ec "emacslient -t"
-alias es "emacs --daemon"
+alias ed "emacs --daemon"
+
+# Django development mode
+set -g -x DEVELOPMENT 1
 
 # set -g -x PATH /usr/local/bin $PATH
 set -g -x PATH /usr/local/opt/coreutils/libexec/gnubin $PATH
@@ -27,7 +30,7 @@ set -g -x MANPAT /usr/local/opt/coreutils/libexec/gnuman $MANPATH
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
 
-egrep "^export " ~/.profile | while read e
+egrep "^export " ~/.secret_profile | while read e
   set var (echo $e | sed -E "s/^export ([A-Z_]+)=(.*)\$/\1/")
   set value (echo $e | sed -E "s/^export ([A-Z_]+)=(.*)\$/\2/")
 

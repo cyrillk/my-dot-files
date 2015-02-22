@@ -1,0 +1,23 @@
+[user]
+	name = Kirill Kulikov
+	email = kirill@top10.com
+[color]
+	ui = true
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	last = log -1 HEAD
+	unstage = reset HEAD --
+	lo = log --graph --decorate --oneline
+[core]
+	excludesfile = /Users/kirill/.gitignore_global
+[init]
+	templatedir = ~/.git_template
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

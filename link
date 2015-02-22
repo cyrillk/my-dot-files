@@ -1,0 +1,19 @@
+#!/bin/bash
+
+function symlink {
+  ln -s -f -v $(pwd)/$1 $2
+}
+
+symlink dot-vim/vimrc ~/.vimrc
+
+symlink dot-fish/config.fish ~/.config/fish/config.fish
+
+symlink dot-hammerspoon/init.lua ~/.hammerspoon/init.lua
+
+symlink dot-git/gitconfig ~/.gitconfig
+
+symlink dot-git/gitignore_global ~/.gitignore_global
+
+symlink dot-bash/bash_profile ~/.bash_profile
+
+echo -e "\n[done]"

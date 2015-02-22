@@ -1,3 +1,1 @@
-# my-dot-files
-
-Files from ~/.
+# My . files
