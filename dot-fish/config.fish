@@ -2,7 +2,7 @@
 set fish_path $HOME/.oh-my-fish
 
 # Theme
-set fish_theme clearance 
+set fish_theme clearance
 
 # Plugins
 set fish_plugins brew osx python
@@ -29,6 +29,9 @@ set -g -x MANPAT /usr/local/opt/coreutils/libexec/gnuman $MANPATH
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
+
+# Load autojump configuration.
+[ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
 
 egrep "^export " ~/.secret_profile | while read e
   set var (echo $e | sed -E "s/^export ([A-Z_]+)=(.*)\$/\1/")

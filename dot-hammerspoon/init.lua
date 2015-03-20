@@ -1,5 +1,6 @@
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", function()
-  hs.alert.show("Hello World!")
+-- reload config
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
+  hs.reload()
 end)
 
 local MOVE_SIZE = 50
@@ -36,7 +37,18 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", function()
   win:setFrame(f)
 end)
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "R", function()
-  hs.reload()
+local hotkey = require 'hs.hotkey'
+local window = require 'hs.window'
+
+hotkey.bind({"cmd", "alt", "ctrl"}, "A", function()
+  local win = window.focusedWindow()
+  if win ~= nil then
+    win:setFullScreen(not win:isFullScreen())
+  end
 end)
+
+-- https://github.com/tstirrat/hammerspoon-config/blob/master/modules/fullscreen.lua
+
 hs.alert.show("Config loaded")
+
+
