@@ -10,14 +10,20 @@
 " git clone https://github.com/derekwyatt/vim-scala
 " git clone https://github.com/tpope/vim-sensible.git
 " git clone https://github.com/tpope/vim-surround.git
+" git clone git://github.com/klen/python-mode.git
 " ==================================================
 
 " allow backspacing over everything in insert mode
 " set backspace=indent,eol,start
 
-execute pathogen#infect()
-syntax on
+" Pathogen load
+filetype off
+
+call pathogen#infect()
+call pathogen#helptags()
+
 filetype plugin indent on
+syntax on
 
 " displays line numbers
 " set number

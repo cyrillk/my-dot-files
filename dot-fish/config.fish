@@ -17,6 +17,9 @@ alias em "emacs"
 alias ec "emacslient -t"
 alias ed "emacs --daemon"
 
+# Docker
+boot2docker shellinit ^ /dev/null | source
+
 # Django development mode
 set -g -x DEVELOPMENT 1
 
