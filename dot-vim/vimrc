@@ -29,6 +29,10 @@ syntax on
 " displays line numbers
 " set number
 
+" lisp mode for elisp and spacemacs files
+au BufNewFile,BufRead *.el set filetype=lisp
+au BufNewFile,BufRead .spacemacs set filetype=lisp
+
 " Better Rainbow Parentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound

@@ -13,6 +13,7 @@
 	lo = log --graph --decorate --oneline
 [core]
 	excludesfile = /Users/kirill/.gitignore_global
+	editor = /usr/bin/vim
 [init]
 	templatedir = ~/.git_template
 [difftool "sourcetree"]

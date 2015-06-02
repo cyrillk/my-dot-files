@@ -2,17 +2,21 @@
 set fish_path $HOME/.oh-my-fish
 
 # Theme
-set fish_theme clearance
+Theme "l"
+# set fish_theme clearance
 
 # Plugins
-set fish_plugins brew osx python
+Plugin "brew"
+Plugin "osx"
+Plugin "python"
+Plugin "boot2docker"
+# set fish_plugins brew osx python
 
-# Settings
-# set --erase fish_greeting
+# Remove fish default greeting 
+set --erase fish_greeting
 
 # Aliases
 alias gg "git status"
-alias ff "find . ! -iwholename '*.git*' -type f -name"
 alias em "emacs"
 alias ec "emacslient -t"
 alias ed "emacs --daemon"
@@ -35,6 +39,10 @@ set -g -x MANPAT /usr/local/opt/coreutils/libexec/gnuman $MANPATH
 
 # Load autojump configuration.
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
+
+function ff -d 'Find by name.'
+  find . ! -iwholename "*/target/*" -type f -name "*$argv*"
+end
 
 function fuck -d 'Correct your previous console command'
   set -l exit_code $status
