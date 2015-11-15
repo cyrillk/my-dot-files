@@ -11,8 +11,8 @@
     ;; List of configuration layers to load. If it is the symbol `all' instead
     ;; of a list then all discovered layers will be installed.
     dotspacemacs-configuration-layers
-    '(
-      slime
+    '(slime
+      go
       lua
       scala
       python
@@ -66,7 +66,8 @@
     ;; Press <SPC> T n to cycle to the next theme in the list (works great
     ;; with 2 themes variants, one dark and one light)
     dotspacemacs-themes '(leuven
-                           monokai)
+                          cyberpunk
+                          monokai)
     ;; solarized-dark
     ;; solarized-light
     ;; zenburn
@@ -143,6 +144,7 @@
   )
 
 (defun dotspacemacs/config ()
+  (setq paradox-github-token "1b97b7c66dbaba701bdc067b50cd6fe5c8f39037")
   (setq powerline-default-separator 'nil)
   (setq dotspacemacs-mode-line-unicode-symbols 'nil)
   (fancy-battery-mode t)
