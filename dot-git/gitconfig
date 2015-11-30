@@ -1,32 +1,19 @@
 [user]
-	name = Kirill Kulikov
-	email = kirill@top10.com
+  name = Kirill Kulikov
+  email = kirill.kulikov@gmail.com
+[credential]
+  helper = osxkeychain
+  useHttpPath = true
 [color]
-	ui = true
+  ui = true
 [alias]
-	st = status
-	co = checkout
-	ci = commit
-	br = branch
-	last = log -1 HEAD
-	unstage = reset HEAD --
-	lo = log --graph --decorate --oneline
+  st = status
+  co = checkout
+  ci = commit
+  br = branch
+  last = log -1 HEAD
+  unstage = reset HEAD --
+  lo = log --graph --decorate --oneline
 [core]
-	excludesfile = /Users/kirill/.gitignore_global
-	editor = /usr/bin/vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.4/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
-[advice]
-  statusHints = false
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  excludesfile = /Users/kirill/.gitignore_global
+  editor = /usr/bin/vim
