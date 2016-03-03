@@ -20,4 +20,4 @@ save ".atom/init.coffee"
 
 DDDD=`date +%Y_%m_%d`
 git commit -am "Auto Update $DDDD"
-#git push
+git push -u origin master
