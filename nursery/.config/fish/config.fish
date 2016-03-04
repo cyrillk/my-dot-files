@@ -7,6 +7,8 @@ set -gx OMF_PATH "/Users/kirill/.local/share/omf"
 # Load oh-my-fish configuration.
 source $OMF_PATH/init.fish
 
+set -gx EDITOR "vim"
+
 # Go
 set -gx GOPATH "/Users/kirill/gocode"
 set -gx PATH $GOPATH/bin $PATH
