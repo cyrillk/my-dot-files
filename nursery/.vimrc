@@ -20,7 +20,7 @@
 " https://github.com/tpope/vim-unimpaired.git
 " ==================================================
 
-" Pathogen load
+" pathogen load
 filetype off
 
 call pathogen#infect()
