@@ -20,6 +20,10 @@ alias do "docker"
 alias dm "docker-machine"
 alias h "history"
 
+function go.me -d 'My go home'
+  cd $GOPATH/src/github.com/cyrillk
+end
+
 function ff -d 'Find by name.'
   find . ! -iwholename "*/target/*" -type f -name "*$argv*"
 end

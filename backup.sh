@@ -4,12 +4,18 @@ set -o nounset
 set -o errexit
 set -o pipefail
 
-dest="./nursery"
-mkdir -p $dest
+args=("$@")
+
+where=${args[0]}
+
+dest="$where/nursery"
+mkdir -p "$dest"
+
+echo $dest
 
 save() {
   name=$1
-  mkdir -p $(dirname $dest/$name) && cp -R ~/$name $dest/$name
+  mkdir -p "$(dirname $dest/$name)" && cp -R ~/"$name" "$dest/$name"
 }
 
 save ".config/fish/config.fish"
