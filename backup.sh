@@ -13,7 +13,7 @@ mkdir -p "$dest"
 
 save() {
   name=$1
-  mkdir -p $(dirname $dest/$name) && cp -R ~/$name $dest/$name
+  mkdir -p $(dirname $dest/$name) && cp -R $HOME/$name $dest/$name
 }
 
 save ".config/fish/config.fish"

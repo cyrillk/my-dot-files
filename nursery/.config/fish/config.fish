@@ -1,12 +1,4 @@
-# Path to Oh My Fish install.
-set -gx OMF_PATH "/Users/kirill/.local/share/omf"
-
-# Customize Oh My Fish configuration path.
-#set -gx OMF_CONFIG "/Users/kirill/.config/omf"
-
-# Load oh-my-fish configuration.
-source $OMF_PATH/init.fish
-
+# Vim
 set -gx EDITOR "vim"
 
 # Go
@@ -20,7 +12,7 @@ alias do "docker"
 alias dm "docker-machine"
 alias h "history"
 
-function go.me -d 'My go home'
+function gohome -d 'My go home'
   cd $GOPATH/src/github.com/cyrillk
 end
 
