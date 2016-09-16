@@ -17,10 +17,8 @@ save() {
 }
 
 save ".config/fish/config.fish"
-save ".vimrc"
 save ".hammerspoon/init.lua"
-save ".spacemacs"
-save ".atom/init.coffee"
+save ".vimrc"
 
 DDDD=$(date +%Y_%m_%d)
 git commit -am "Auto Update $DDDD"

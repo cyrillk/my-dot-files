@@ -1,63 +1,73 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Keep Plugin commands between vundle#begin/end.
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'dag/vim-fish'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'fatih/vim-go'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 "
-" ==================================================
-" http://vimawesome.com/
-" ==================================================
-" cd ~/.vim/bundle
-" https://github.com/ekalinin/Dockerfile.vim.git
-" https://github.com/scrooloose/nerdcommenter.git
-" https://github.com/kien/rainbow_parentheses.vim
-" https://github.com/scrooloose/syntastic.git
-" https://github.com/bling/vim-airline
-" https://github.com/chase/vim-ansible-yaml.git
-" https://github.com/altercation/vim-colors-solarized.git
-" https://github.com/dag/vim-fish
-" https://github.com/tpope/vim-fugitive.git
-" https://github.com/tpope/vim-git
-" https://github.com/fatih/vim-go.git
-" https://github.com/derekwyatt/vim-scala.git
-" https://github.com/tpope/vim-sensible.git
-" https://github.com/tpope/vim-surround.git
-" https://github.com/tpope/vim-unimpaired.git
-" ==================================================
-
-" pathogen load
-filetype off
-
-call pathogen#infect()
-call pathogen#helptags()
-
-filetype plugin indent on
-syntax on
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
 
 " shell
 set noshelltemp
-" set shell=/bin/bash
-
-" leader key
-let mapleader = ","
-
-" allow backspacing over everything in insert mode
-" set backspace=indent,eol,start
-
-" displays line numbers
-" set number
+set shell=/bin/bash
 
 " lisp mode for elisp and spacemacs files
 au BufNewFile,BufRead *.el set filetype=lisp
 au BufNewFile,BufRead .spacemacs set filetype=lisp
+au BufNewFile,BufRead .service set filetype=systemd
 
-" Better Rainbow Parentheses
+" better rainbow parentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 au Syntax * RainbowParenthesesLoadChevrons
 
-" Solarized
+" solarized
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
+call togglebg#map("<F5>")
 
 " leader key
 let mapleader = ','
@@ -83,36 +93,47 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Turn backup off
+" turn backup off
 set nobackup
 set nowb
 set noswapfile
 
-" Use spaces instead of tabs
+" use spaces instead of tabs
 set expandtab
 
-" Be smart when using tabs ;)
+" be smart when using tabs ;)
 set smarttab
 
 " 1 tab == 2 spaces
-set shiftwidth=2
 set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 " remove unwanted spaces
-autocmd FileType sh autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType *.sh,*.py autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-" Syntastic
+" syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [], 'passive_filetypes': ['go', 'sbt', 'scala', 'java'] }
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
-" Go
+" python
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+set encoding=utf-8
+let python_highlight_all=1
+" syntax on
+
+" go
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
